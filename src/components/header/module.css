@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color5);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  padding: var(--main-padding);
+  color: var(--color1);
+}
+
+.logo img {
+  width: 32px;
+  height: 32px;
+  color: red;
+}
+
+.logo p {
+  margin-left: 6px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: x-large;
+}
