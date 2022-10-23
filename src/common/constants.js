@@ -1,0 +1,5 @@
+const CURRENCYS = ['USD', 'EUR'];
+const BASE_CURRENCY = process.env.REACT_APP_BASE_CURRENCY;
+const BASE_URL = process.env.REACT_APP_RATES_URL;
+
+export { CURRENCYS, BASE_CURRENCY, BASE_URL };
