@@ -14,17 +14,16 @@
   width: 33%;
 }
 
-.logo img {
+.exchangeIcon {
   width: 32px;
   height: 32px;
-  color: red;
 }
 
 .logo p {
   margin-left: 6px;
   text-transform: uppercase;
   font-weight: 600;
-  font-size: x-large;
+  font-size: large;
 }
 
 .rateCouples {
@@ -38,4 +37,3 @@
 .flag {
   padding: var(--main-padding);
 }
-
