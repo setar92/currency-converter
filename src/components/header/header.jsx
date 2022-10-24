@@ -1,6 +1,6 @@
 import './module.css';
-import { CurrencyIcon } from '../../assets/currency-icon';
 import { CurrencyCouple } from '../currency-couple/currency-couple';
+import { CurrencyIcon, flagUkraine } from '../../assets';
 
 const Header = ({ rates }) => {
   return (
@@ -9,10 +9,12 @@ const Header = ({ rates }) => {
         <CurrencyIcon fill='#a38f1f' />
         <p>currency</p>
       </div>
-      <div>
-        {rates.map(rate => <CurrencyCouple rate={rate} key={rate.ccy}/>)}
+      <div className='rateCouples'>
+        {rates.map(rate => <CurrencyCouple rate={rate} key={rate.ccy} />)}
       </div>
-      <div>profile</div>
+      <div className='flag'>
+        <img src={flagUkraine} width='100px' alt='Ukraine'></img>
+      </div>
     </header>
   )
 };

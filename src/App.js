@@ -13,7 +13,6 @@ function App() {
     getRates(BASE_URL, setIsLoading, setError)
       .then(data => {
         const choosedRates = chooseRates(data);
-        console.log(choosedRates);
         setRates(choosedRates);
       });
   }, []);
