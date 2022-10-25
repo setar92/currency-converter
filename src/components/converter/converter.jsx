@@ -1,47 +1,123 @@
 import { useState } from 'react';
 import './module.css';
 import { BASE_CURRENCY } from '../../common/constants';
+import { convertCurrency } from '../../helpers/convert-currency';
 
 const Converter = ({ rates }) => {
-  const [firstCurrency, setFirstCurrency] = useState({ ccy: '', count: null });
-  const [secondCurrency, setSecondCurrency] = useState({ ccy: '', count: null });
+  const [giveCurrency, setGiveCurrency] = useState({ ccy: BASE_CURRENCY, count: '' });
+  const [getCurrency, setGetCurrency] = useState({ ccy: BASE_CURRENCY, count: '' });
+  
+  const handleChangeGive = (e) => {
+    if (e.target.value < 0) {
+      setGiveCurrency({ ...giveCurrency, count: 0 });
+      setGetCurrency({...getCurrency, count: 0});
+    } else {
+      setGiveCurrency({
+        ...giveCurrency,
+        count: e.target.value,
+      });
+      setGetCurrency({
+        ...getCurrency,
+        count : convertCurrency({
+        ccyGive: giveCurrency.ccy,
+        ccyGet: getCurrency.ccy,
+        count: e.target.value,
+        rates,
+        isItGive: true,
+      })});
+    };
+  };
 
-  // const convertCurrency = () => {
-  //   if (firstCurrency && secondCurrency) {
-  //     if 
-  //   }
-  // }
+  const handleChangeGet = (e) => {
+    if (e.target.value < 0) {
+      setGiveCurrency({ ...giveCurrency, count: 0 });
+      setGetCurrency({...getCurrency, count: 0});
+    } else {
+      setGetCurrency({
+        ...getCurrency,
+        count: e.target.value,
+      });
+      setGiveCurrency({
+        ...giveCurrency,
+        count : convertCurrency({
+        ccyGive: giveCurrency.ccy,
+        ccyGet: getCurrency.ccy,
+        count: e.target.value,
+        rates,
+        isItGive: false,
+      })});
+    };
+  };
 
-  console.log(rates)
+  const handleChangeCcyGive = (e) => {
+    setGiveCurrency({
+      ...giveCurrency,
+      ccy: e.target.value
+    });
+    setGetCurrency({
+      ...getCurrency,
+      count : convertCurrency({
+      ccyGive: e.target.value,
+      ccyGet: getCurrency.ccy,
+      count: giveCurrency.count,
+      rates,
+      isItGive: true,
+    })});
+  };
+
+  const handleChangeCcyGet = (e) => {
+    setGetCurrency({
+      ...getCurrency,
+      ccy: e.target.value
+    });
+    setGiveCurrency({
+      ...giveCurrency,
+      count : convertCurrency({
+      ccyGive: giveCurrency.ccy,
+      ccyGet: e.target.value,
+      count: getCurrency.count,
+      rates,
+      isItGive: false,
+    })});
+  };
+
   return (
     <div className='converter'>
       give
       <input
         type="number"
-        value={firstCurrency.ccy}
-        onChange={e => setFirstCurrency({
-          ...firstCurrency,
-          count: Number(e.target.value)
-        })}
+        value={giveCurrency.count}
+        onChange={e => handleChangeGive(e)}
       />
-      <select>
-        {rates.map(rate => <option value={rate.ccy}>{rate.ccy}</option>)}
+      <select
+        value={giveCurrency.ccy}
+        onChange={e => handleChangeCcyGive(e)}>
         <option value={BASE_CURRENCY}>{BASE_CURRENCY}</option>
+        {rates.map(rate =>
+          <option
+            value={rate.ccy}
+            key={rate.ccy}>
+            {rate.ccy}
+          </option>)}
       </select>
       get
       <input
         type="number"
-        value={secondCurrency.ccy}
-        onChange={e => setSecondCurrency({
-          ...secondCurrency,
-          count: Number(e.target.value)
-        })}
+        value={getCurrency.count}
+        onChange={e => handleChangeGet(e)}
       />
-      <select>
-        {rates.map(rate => <option value={rate.ccy}>{rate.ccy}</option>)}
+      <select
+        value={getCurrency.ccy}
+        onChange={e => handleChangeCcyGet(e)}>
         <option value={BASE_CURRENCY}>{BASE_CURRENCY}</option>
+        {rates.map(rate =>
+          <option
+            key={rate.ccy}
+            value={rate.ccy}>
+            {rate.ccy}
+          </option>)
+        }
       </select>
-      <span></span>
     </div>
   );
 };
