@@ -1,4 +1,4 @@
-.currencyCouple {
+.currency-сouple {
   min-width: 150px;
   display: flex;
   flex-direction: column;
@@ -6,12 +6,6 @@
   padding: 0 var(--main-size);
   border: 2px solid var(--color1);
   border-radius: var(--main-size);
-}
-
-
-.currencyCouple p:hover {
-  background-color: var(--color2);
-  cursor: grab;
 }
 
 .rate {
@@ -22,7 +16,7 @@
   .currencyCouple p {
     font-size: smaller;
   }
-  
+
   .currencyCouple{
     min-width: auto;
     padding: 0 var(--small-size);

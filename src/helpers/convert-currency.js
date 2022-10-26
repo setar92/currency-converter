@@ -22,6 +22,7 @@ const crossRate = (ccyGive, ccyGet, rates, isGiveCurrency) => {
 };
 
 const convertCurrency = ({ ccyGive, ccyGet, count, rates, isItGive }) => {
+  count = Number(count);
   const signsAfterComa = 2;
   if (ccyGive === ccyGet) {
     return count.toFixed(signsAfterComa);
