@@ -3,6 +3,7 @@ import { Header } from './components/header/header';
 import { getRates } from './http/get-rates';
 import { BASE_URL } from './common/constants';
 import { chooseRates } from './helpers/choose-exchange-rates';
+import { Converter } from './components/converter/converter';
 
 function App() {
   const [error, setError] = useState('');
@@ -24,7 +25,10 @@ function App() {
     return <div>error</div>
   }
   return (
-    <Header rates={rates} />
+    <>
+      <Header rates={rates} />
+      <Converter rates={rates}/>
+    </>
   );
 };
 
