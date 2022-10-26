@@ -74,6 +74,9 @@
 }
 
 @media (max-width: 700px) {
+  .count-field input:first-child {
+    padding-left: var(--small-size);
+  }
 
   .count-field input,
   .count-field select {
