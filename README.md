@@ -17,10 +17,10 @@ Only the React framework was used to create the application, without additional 
 
 # Data for .env file
 
-REACT_APP_RATES_URL = https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5
-REACT_APP_BASE_CURRENCY = UAH
-REACT_APP_UKRAINE_URL = https://en.wikipedia.org/wiki/Ukraine
-REACT_APP_UKRAINE_UAH_URL= https://en.wikipedia.org/wiki/Ukrainian_hryvnia
+- REACT_APP_RATES_URL = https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5
+- REACT_APP_BASE_CURRENCY = UAH
+- REACT_APP_UKRAINE_URL = https://en.wikipedia.org/wiki/Ukraine
+- REACT_APP_UKRAINE_UAH_URL= https://en.wikipedia.org/wiki/Ukrainian_hryvnia
 
 # Getting Started with Create React App
 
