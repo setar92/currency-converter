@@ -1,7 +1,141 @@
-.converter {
+.container {
   width: 100%;
+  height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--main-padding);
+  padding: var(--large-size);
+}
+
+.converter {
+  display: flex;
+  justify-content: center;
+  padding: var(--large-size);
+  border: 2px solid var(--color1);
+  border-radius: var(--large-size);
+  background-color: var(--color2);
+}
+
+.title {
+  text-align: center;
+  font-size: var(--font-size-400);
+  margin-bottom: var(--main-size);
+  color: white;
+  font-weight: 600;
+}
+
+.give-currency {
+  display: flex;
+  flex-direction: column;
+  margin-right: var(--main-size);
+}
+
+.get-currency {
+  display: flex;
+  flex-direction: column;
+}
+
+.count-field input,
+.count-field select {
+  font-size: var(--font-size-300);
+  padding: var(--main-size);
+  border: 2px solid var(--color1);
+  border-radius: var(--small-size);
+}
+
+.count-field input:first-child {
+  padding-left: var(--large-size);
+  margin-right: var(--small-size);
+}
+
+.count-field input:nth-child(2) {
+  text-align: right;
+  margin-left: var(--small-size);
+}
+
+.arrows {
+  margin-bottom: -1px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.arrows img {
+  width: 42px;
+  height: 42px;
+  margin-right: var(--main-size);
+  cursor: pointer;
+  border: 3px solid var(--color-white);
+  border-radius: 50%;
+  padding: var(--main-size);
+}
+
+.arrows img:hover {
+  background-color: var(--color4);
+}
+
+@media (max-width: 700px) {
+
+  .count-field input,
+  .count-field select {
+    font-size: var(--font-size-100);
+    padding: var(--small-size);
+  }
+
+  .count-field input {
+    max-width: 100px;
+  }
+
+  .arrows img {
+    width: 32px;
+    height: 32px;
+    padding: var(--small-size);
+  }
+
+  .container {
+    padding: 0;
+  }
+
+  .converter {
+    padding: var(--main-size) var(--small-size);
+  }
+
+  .title {
+    font-size: var(--font-size-300);
+  }
+}
+
+@media (max-width: 400px) {
+
+  .give-currency .count-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .give-currency .count-field {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .get-currency .count-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 6px;
+  }
+
+  .count-field input, .count-field select {
+    width: 100px;
+  }
+
+  .title {
+    font-size: var(--font-size-100);
+  }
+
+  .arrows {
+    margin-bottom: 12px;
+  }
 }

@@ -22,17 +22,18 @@ const crossRate = (ccyGive, ccyGet, rates, isGiveCurrency) => {
 };
 
 const convertCurrency = ({ ccyGive, ccyGet, count, rates, isItGive }) => {
+  const signsAfterComa = 2;
   if (ccyGive === ccyGet) {
-    return count;
+    return count.toFixed(signsAfterComa);
   } else if (ccyGet === BASE_CURRENCY) {
-    if (isItGive) return getRate(ccyGive, 'buy', rates) * count;
-    return count / getRate(ccyGive, 'buy', rates);
+    if (isItGive) return (getRate(ccyGive, 'buy', rates) * count).toFixed(signsAfterComa);
+    return (count / getRate(ccyGive, 'buy', rates)).toFixed(signsAfterComa);
   } else if (ccyGive === BASE_CURRENCY) {
-    if (isItGive) return count / getRate(ccyGet, 'sale', rates);
-    return getRate(ccyGet, 'sale', rates) * count;
+    if (isItGive) return (count / getRate(ccyGet, 'sale', rates)).toFixed(signsAfterComa);
+    return (getRate(ccyGet, 'sale', rates) * count).toFixed(signsAfterComa);
   } else {
-    if (isItGive) return crossRate(ccyGive, ccyGet, rates, isItGive) * count;
-    return crossRate(ccyGive, ccyGet, rates, isItGive) * count;
+    if (isItGive) return (crossRate(ccyGive, ccyGet, rates, isItGive) * count).toFixed(signsAfterComa);
+    return (crossRate(ccyGive, ccyGet, rates, isItGive) * count).toFixed(signsAfterComa);
   };
 };
 
