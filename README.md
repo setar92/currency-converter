@@ -1,3 +1,20 @@
+# Currency-converter
+
+This is a small application created for educational purposes.
+
+# Useful Links 
+
+https://github.com/setar92/currency-converter.
+
+# Fitures
+
+1. The application receives current exchange rates for UAH from an external API.
+2. The cross-rate is calculated using currency rates relative to hryvnias. For the calculation app uses, the selling rate relative to UAH of the currency we give and the buying rate of the currency we receive are.
+
+# Technologies
+
+Only the React framework was used to create the application, without additional libraries.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
