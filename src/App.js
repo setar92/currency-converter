@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Header } from './components/header/header';
+import { Header, Loader, Converter } from './components';
 import { getRates } from './http/get-rates';
 import { BASE_URL } from './common/constants';
 import { chooseRates } from './helpers/choose-exchange-rates';
-import { Converter } from './components/converter/converter';
 
 function App() {
   const [error, setError] = useState('');
@@ -19,7 +18,7 @@ function App() {
   }, []);
 
   if (isLoading) {
-    return <div>isLoading</div>
+    return <Loader />
   }
   if (error) {
     return <div>error</div>
@@ -27,7 +26,7 @@ function App() {
   return (
     <>
       <Header rates={rates} />
-      <Converter rates={rates}/>
+      <Converter rates={rates} />
     </>
   );
 };
