@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Header, Loader, Converter } from './components';
+import { Header, Loader, Converter, ErrorToast } from './components';
 import { getRates } from './http/get-rates';
 import { BASE_URL } from './common/constants';
 import { chooseRates } from './helpers/choose-exchange-rates';
@@ -19,10 +19,10 @@ function App() {
 
   if (isLoading) {
     return <Loader />
-  }
+  };
   if (error) {
-    return <div>error</div>
-  }
+    return <ErrorToast message={error} />
+  };
   return (
     <>
       <Header rates={rates} />
